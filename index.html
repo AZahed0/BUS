@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Den Helder Buslijnenkaart</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loadingIndicator" class="loading-overlay">
+    <div class="spinner"></div>
+    <strong>Den Helder Buslijnenkaart laden...</strong>
+  </div>
+  <div id="errorContainer" class="error-banner hidden" role="alert"></div>
+
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <header class="brand">
+        <div class="brand-copy"><span>BUSVERVOER IN DE NOORDKOP</span><strong>DEN HELDER BUSKAART</strong></div>
+        <button id="closeSidebarBtn" class="icon-button mobile-only" aria-label="Menu sluiten">✕</button>
+      </header>
+
+      <nav class="sidebar-tabs" aria-label="Dashboardsecties">
+        <button class="tab active" data-panel="overview">Overzicht</button>
+        <button class="tab" data-panel="layers">Lagen</button>
+        <button class="tab" data-panel="analysis">Kaart</button>
+      </nav>
+
+      <div class="sidebar-scroll">
+        <section class="tab-panel active" data-panel="overview">
+          <div class="stats-grid">
+            <article><strong id="statTotalStops">0</strong><span>Bushaltes</span></article>
+            <article><strong id="statTotalRoutes">0</strong><span>Buslijnen</span></article>
+            <article><strong id="statVisible">0</strong><span>Zichtbaar</span></article>
+            <article><strong id="statSelected">0</strong><span>Geselecteerd</span></article>
+          </div>
+
+          <h2>Zoeken</h2>
+          <div class="search-wrap">
+            <input id="searchInput" type="search" autocomplete="off" placeholder="Zoek halte, lijn of adres">
+            <button id="clearSearchBtn" class="clear-search" aria-label="Zoekopdracht wissen">×</button>
+            <div id="searchResults" class="search-results"></div>
+          </div>
+
+          <h2>Kies buslijnen</h2>
+          <div class="route-choice-actions">
+            <button id="selectAllRoutesBtn" type="button">Alles tonen</button>
+            <button id="clearRoutesBtn" type="button">Keuze wissen</button>
+          </div>
+          <div id="routeChoices" class="route-choices" aria-label="Kies buslijnen"></div>
+          <label class="field-label" for="filterPlace">Plaats / gemeente</label>
+          <input id="filterPlace" type="search" placeholder="Bijv. Den Helder">
+          <button id="resetFiltersBtn" class="secondary-button">Filters wissen</button>
+        </section>
+
+        <section class="tab-panel" data-panel="layers">
+          <h2>Kaartlagen</h2>
+          <label class="toggle-row"><span>Bushaltes</span><input id="toggleStops" type="checkbox" checked></label>
+          <label class="toggle-row"><span>Buslijnen</span><input id="toggleRoutes" type="checkbox" checked></label>
+          <label class="toggle-row"><span>Lijnlabels</span><input id="toggleLabels" type="checkbox" checked></label>
+
+          <h2>Basiskaart</h2>
+          <select id="basemapSelect">
+            <option value="osm">OpenStreetMap</option>
+            <option value="topo" selected>Topografisch</option>
+            <option value="aerial">Luchtfoto PDOK</option>
+          </select>
+
+          <h2>Legenda</h2>
+          <div id="legend" class="legend"></div>
+        </section>
+
+        <section class="tab-panel" data-panel="analysis">
+          <h2>Kaart bedienen</h2>
+          <p class="help-text">Selecteer een of meer lijnen om alleen die routes en de bijbehorende haltes te bekijken.</p>
+        </section>
+      </div>
+    </aside>
+
+    <main class="map-shell">
+      <button id="openSidebarBtn" class="floating-menu-btn" aria-label="Menu openen">☰</button>
+      <div id="viewDiv"></div>
+      <div class="map-toolbar">
+        <button id="reloadBtn" title="Lokale GeoJSON opnieuw laden" aria-label="Gegevens opnieuw laden">↻</button>
+        <button id="extentBtn" title="Zoom naar Den Helder" aria-label="Zoom naar Den Helder">⌖</button>
+        <button id="resetBtn" title="Filters en selectie wissen" aria-label="Reset">×</button>
+        <button id="locateBtn" title="Toon mijn locatie" aria-label="Toon mijn locatie">◎</button>
+        <button id="fullscreenBtn" title="Volledig scherm" aria-label="Volledig scherm">⛶</button>
+      </div>
+    </main>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
