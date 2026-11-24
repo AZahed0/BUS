@@ -1,0 +1,394 @@
+# PROJECT: Professionele interactieve buskaart van Nederland – Esri ArcGIS Maps SDK for JavaScript
+
+## 1. Jouw rol
+
+Je bent een senior GIS-ontwikkelaar, cartograaf en frontend engineer met uitgebreide kennis van Esri ArcGIS Maps SDK for JavaScript, GeoJSON, JavaScript, HTML en CSS.
+
+Ontwikkel een volledig interactieve, moderne en professionele GIS-webapplicatie waarmee gebruikers buslijnen en bushaltes in Nederland kunnen bekijken, doorzoeken, analyseren en selecteren.
+
+De kaart moet eruitzien als een professionele transport-GIS-applicatie.
+
+De applicatie moet volledig in het Nederlands zijn.
+
+## 2. Databron – GeoJSON
+
+Gebruik deze GeoJSON als primaire databron:
+
+https://azahed0.github.io/t2t2astnedth/Bussen_nederland_met_emojis_den_helder.geojson
+
+Belangrijk:
+- Laad de GeoJSON rechtstreeks via de URL.
+- Inspecteer eerst de daadwerkelijke GeoJSON-structuur.
+- Herken automatisch Point, MultiPoint, LineString en MultiLineString.
+- Identificeer alle beschikbare attribuutvelden.
+- Gebruik de bestaande namen, lijnnummers, emoji's en overige eigenschappen uit de dataset.
+- Verzin geen informatie die niet in de dataset staat.
+- Ondersteun ontbrekende of lege attributen.
+- Zorg dat de applicatie opnieuw gegevens kan laden.
+
+Gebruik bij voorkeur Esri GeoJSONLayer als de structuur compatibel is. Gebruik anders een passende conversie naar FeatureLayer.
+
+## 3. Kaarttechnologie en basiskaart
+
+Gebruik:
+- Esri ArcGIS Maps SDK for JavaScript.
+- Map.
+- MapView.
+- GeoJSONLayer en/of FeatureLayer.
+- GraphicsLayer voor tijdelijke selecties en highlights.
+- Sketch indien nodig voor tekenfunctionaliteit.
+
+Gebruik als standaardbasiskaart:
+
+`topo-vector`
+
+Dit is de Esri Topographic-basemap.
+
+De kaart moet:
+- Nederland automatisch in beeld brengen.
+- Soepel zoomen en verschuiven.
+- Plaatsnamen, wegen en geografische kenmerken tonen.
+- Geschikt zijn voor desktop, tablet en mobiel.
+- Een duidelijke en professionele cartografische uitstraling hebben.
+
+## 4. Professionele cartografie en kleuren
+
+Ontwerp een aantrekkelijke kaart met een goed gekozen kleurenschema.
+
+### Buslijnen
+
+Gebruik een onderscheidend kleurenpalet:
+- Blauw: #1677D2
+- Turquoise: #00A99D
+- Paars: #8854D0
+- Oranje: #F59E0B
+- Groen: #22A06B
+- Rood: #E05252
+- Donkerblauw: #24476B
+
+Vereisten:
+- Gebruik verschillende kleuren voor verschillende buslijnen.
+- Gebruik vloeiende lijnen met afgeronde uiteinden.
+- Gebruik een subtiele witte casing voor betere zichtbaarheid.
+- Maak geselecteerde lijnen extra dik en opvallend.
+- Gebruik lijnlabels wanneer het zoomniveau geschikt is.
+- Vermijd onnodige visuele drukte.
+
+### Bushaltes
+
+Gebruik:
+- Ronde bushalte-symbolen.
+- Busemoji 🚌 waar mogelijk.
+- Witte buitenrand.
+- Duidelijke contrasterende kleuren.
+- Grotere symbolen bij selectie.
+- Schaalafhankelijke symbolen.
+
+Voorkom dat bushaltes elkaar overlappen bij een groot aantal punten.
+
+## 5. Geavanceerde pop-ups
+
+Maak professionele, aantrekkelijke en interactieve pop-ups.
+
+### Pop-up voor bushaltes
+
+Toon waar beschikbaar:
+- Naam van de bushalte.
+- Haltecode of ID.
+- Plaats of gemeente.
+- Bijbehorende buslijnen.
+- Emoji of symbool.
+- Coördinaten.
+- Overige beschikbare informatie.
+
+Gebruik een moderne kaart met:
+- Duidelijke titel.
+- Kleine pictogrammen.
+- Gestructureerde informatie.
+- Goed leesbare typografie.
+- Subtiele schaduwen.
+- Afgeronde hoeken.
+
+Voeg knoppen toe voor:
+- Zoom naar bushalte.
+- Kopieer coördinaten.
+- Toon nabijgelegen bushaltes.
+- Bekijk bijbehorende buslijnen.
+
+### Pop-up voor buslijnen
+
+Toon waar beschikbaar:
+- Lijnnummer.
+- Lijnnaam.
+- Routebeschrijving.
+- Begin- en eindpunt.
+- Aantal haltes.
+- Routelengte, berekend vanuit de geometrie.
+- Overige beschikbare attributen.
+
+Voeg acties toe:
+- Zoom naar volledige route.
+- Selecteer deze lijn.
+- Toon alleen deze buslijn.
+- Toon bijbehorende haltes indien de gegevens dit ondersteunen.
+
+## 6. Geavanceerd dashboard
+
+Maak een modern dashboard met een uitklapbaar zijpaneel aan de linkerkant.
+
+Het dashboard bevat:
+
+### Overzicht
+- Totaal aantal bushaltes.
+- Totaal aantal buslijnen.
+- Aantal zichtbare objecten.
+- Aantal geselecteerde lijnen.
+- Aantal geselecteerde haltes.
+
+### Lagenbeheer
+Maak afzonderlijke schakelaars voor:
+- Bushaltes.
+- Buslijnen.
+- Lijnnummers.
+- Haltenamen.
+- Geselecteerde objecten.
+
+Gebruikers kunnen elke laag afzonderlijk aan- en uitzetten.
+
+### Legenda
+Maak een dynamische legenda met:
+- Buslijnkleuren.
+- Bushaltesymbolen.
+- Geselecteerde buslijnen.
+- Overige kaartobjecten.
+
+## 7. Uitgebreide zoekfunctie
+
+Maak een slimme zoekbalk.
+
+Ondersteun zoeken op:
+- Bushaltenaam.
+- Halte-ID.
+- Buslijnnummer.
+- Buslijnnaam.
+- Plaatsnaam, indien beschikbaar.
+
+Functionaliteiten:
+- Automatische suggesties.
+- Zoeken tijdens typen.
+- Resultaten overzichtelijk weergeven.
+- Klik op een resultaat om naar het object te zoomen.
+- Open automatisch de bijbehorende pop-up.
+- Wis zoekresultaten.
+
+## 8. Geavanceerde filters
+
+Voeg een uitgebreid filterpaneel toe.
+
+Gebruikers kunnen:
+- Een specifieke buslijn selecteren.
+- Meerdere buslijnen selecteren.
+- Bushaltes filteren.
+- Zoeken op plaats of gemeente.
+- Alleen geselecteerde routes tonen.
+- Alleen bushaltes van een bepaalde route tonen.
+- Filters combineren.
+- Alle filters in één keer resetten.
+
+Zorg dat filters dynamisch samenwerken en de kaart direct aanpassen.
+
+Gebruik uitsluitend filtervelden die daadwerkelijk in de dataset bestaan.
+
+## 9. Extra interactieve GIS-functionaliteiten
+
+Implementeer de volgende opties:
+
+1. Klik op een buslijn om deze te selecteren.
+2. Klik op een bushalte om de pop-up te openen.
+3. Hover over een lijn voor een visuele highlight.
+4. Hover over een bushalte voor een highlight.
+5. Zoom naar een geselecteerd object.
+6. Zoom naar alle buslijnen en bushaltes.
+7. Schakel tussen bushaltes en buslijnen.
+8. Toon of verberg labels.
+9. Toon of verberg de legenda.
+10. Volledig scherm.
+11. Terug naar de standaardkaartweergave.
+12. Reset alle selecties.
+13. Toon het aantal zichtbare objecten.
+14. Toon een laadindicator.
+15. Toon foutmeldingen wanneer gegevens niet geladen kunnen worden.
+
+## 10. Extra geavanceerde opties
+
+Voeg een apart paneel toe met de volgende functies:
+
+### A. Meetgereedschap
+- Afstand meten.
+- Oppervlakte meten.
+- Meetresultaten tonen in meters en kilometers.
+
+### B. Tekenfunctionaliteit
+- Teken een punt.
+- Teken een lijn.
+- Teken een polygoon.
+- Verwijder getekende objecten.
+
+### C. Nabijheidsanalyse
+- Zoek bushaltes binnen 250 meter.
+- Zoek bushaltes binnen 500 meter.
+- Zoek bushaltes binnen 1 kilometer.
+- Toon resultaten op de kaart.
+- Toon het aantal gevonden haltes.
+
+### D. Routeanalyse
+- Selecteer een buslijn.
+- Bereken de lengte van de lijn.
+- Toon het aantal bijbehorende bushaltes indien de dataset deze relatie bevat.
+- Highlight de route.
+- Toon de volledige route in beeld.
+
+Let op: maak geen echte OV-reisplanner of dienstregelingfunctionaliteit zonder betrouwbare aanvullende gegevens.
+
+### E. Kaart exporteren
+- Exporteer de huidige kaartweergave als PNG, indien technisch ondersteund.
+- Exporteer geselecteerde objecten als GeoJSON.
+- Exporteer gefilterde bushaltes als GeoJSON.
+- Exporteer gefilterde buslijnen als GeoJSON.
+
+### F. Locatiefunctionaliteit
+- Toon mijn locatie na expliciete toestemming van de gebruiker.
+- Toon de dichtstbijzijnde bushaltes.
+- Zoom naar de huidige locatie.
+- Bereken de afstand tot een bushalte.
+
+## 11. Moderne gebruikersinterface
+
+Ontwerp een hoogwaardige GIS-interface.
+
+### Bovenbalk
+- Applicatienaam: BUSKAART NEDERLAND.
+- Zoekbalk.
+- Informatiepaneel.
+- Instellingen.
+- Volledig scherm.
+
+### Linkerzijbalk
+- Overzicht.
+- Lagen.
+- Filters.
+- Bushaltes.
+- Buslijnen.
+- Analyse.
+- Meten.
+- Exporteren.
+
+### Kaart
+- Vult het grootste gedeelte van het scherm.
+- Esri Topographic als basiskaart.
+- Duidelijke buslijnen en bushaltes.
+- Zwevende kaartbediening.
+
+### Rechter informatiepaneel
+- Geselecteerde bushalte.
+- Geselecteerde buslijn.
+- Attribuutinformatie.
+- Statistieken.
+
+### Ontwerpstijl
+- Moderne GIS-dashboardstijl.
+- Witte en lichtgrijze panelen.
+- Blauwe en turquoise accenten.
+- Subtiele schaduwen.
+- Afgeronde hoeken.
+- Professionele iconen.
+- Vloeiende animaties.
+- Uitstekende leesbaarheid.
+
+## 12. Extra basiskaartopties
+
+Maak een basemap-switcher met:
+- Topographic (standaard).
+- Streets.
+- Navigation.
+- Light Gray Canvas.
+- Dark Gray Canvas.
+- Imagery.
+- OpenStreetMap, indien beschikbaar en compatibel.
+
+Zorg ervoor dat de gekozen basiskaart direct wordt toegepast.
+
+## 13. Mobiele versie
+
+Optimaliseer de applicatie voor:
+- Desktop.
+- Laptop.
+- Tablet.
+- Smartphone.
+
+Op mobiel:
+- Gebruik een inklapbaar menu.
+- Gebruik compacte pop-ups.
+- Houd de kaart centraal.
+- Maak bediening geschikt voor aanraking.
+- Zorg dat alle functies bruikbaar blijven.
+
+## 14. Technische kwaliteit
+
+Zorg voor:
+- Moderne JavaScript-code.
+- Goede foutafhandeling.
+- Asynchroon laden.
+- Correcte GeoJSON-validatie.
+- Efficiënte rendering.
+- Schaalafhankelijke zichtbaarheid.
+- Geen dubbele eventlisteners.
+- Geen onnodige herlaadacties.
+- Goede browsercompatibiliteit.
+- Correcte coördinatensystemen.
+- Veilige verwerking van attributen in pop-ups.
+
+Gebruik geen verzonnen veldnamen.
+
+Controleer of de GeoJSON via CORS toegankelijk is.
+
+Gebruik de officiële Esri-documentatie en de actuele stabiele SDK-versie.
+
+## 15. Bestanden en oplevering
+
+Lever een volledig werkend project op met:
+
+- index.html
+- style.css
+- app.js
+
+Eventueel:
+- config.js
+- README.md
+
+Geef complete code voor alle bestanden.
+
+Geen pseudocode.
+Geen lege functies.
+Geen fictieve API's.
+Geen ontbrekende onderdelen.
+
+Leg uit hoe ik het project lokaal kan starten en hoe ik het online kan publiceren via GitHub Pages.
+
+## 16. Eindresultaat
+
+Het eindresultaat moet een professionele, volledig interactieve bus-GIS-applicatie zijn.
+
+De kaart moet:
+- Visueel aantrekkelijk zijn.
+- Snel reageren.
+- Intuïtief werken.
+- Informatieve pop-ups hebben.
+- Geavanceerde GIS-functies bieden.
+- Een uitstekende gebruikerservaring bieden.
+
+**BELANGRIJKSTE OPDRACHT:**
+
+Inspecteer eerst de daadwerkelijke GeoJSON, bepaal welke gegevens beschikbaar zijn en bouw vervolgens de applicatie op basis van die gegevens.
+
+Maak geen standaard demo. Ontwikkel een complete, moderne en hoogwaardige Nederlandse buskaart die geschikt is voor daadwerkelijk gebruik.
