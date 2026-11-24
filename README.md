@@ -19,6 +19,7 @@ Interactieve kaart van buslijnen en bushaltes in Den Helder. De app is gebouwd m
 - `style.css` — vormgeving en mobiele weergave.
 - `app.js` — kaart, interacties en zoekfuncties.
 - `lijnen_en_haltes_den_helder.geojson` — buslijnen en bushaltes.
+- `.github/workflows/deploy-pages.yml` — automatische GitHub Pages-publicatie.
 
 ## Lokaal starten
 
@@ -32,7 +33,7 @@ Open daarna <http://localhost:4173/>. Open `index.html` niet rechtstreeks via `f
 
 ## Publiceren
 
-De website wordt gehost via GitHub Pages vanaf de `main`-branch en de hoofdmap (`/`). De externe kaarttegels en PDOK-adreszoekdienst laden online vanuit hun respectievelijke diensten.
+De website wordt via GitHub Actions automatisch naar GitHub Pages gepubliceerd na iedere push naar `main`. De workflow publiceert de projectbestanden vanuit de hoofdmap. De externe kaarttegels en PDOK-adreszoekdienst laden online vanuit hun respectievelijke diensten.
 
 ## Bronnen en attributie
 
