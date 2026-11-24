@@ -2,8 +2,6 @@
 
 Interactieve kaart van buslijnen en bushaltes in Den Helder. De app is gebouwd met Leaflet en gebruikt de lokale GeoJSON-dataset.
 
-**Live kaart:** https://azahed0.github.io/BUS/
-
 ## Functies
 
 - Buslijnen en bushaltes op een interactieve kaart.
